@@ -11,7 +11,21 @@ struct Friend {
     
     var nameFriend: String
     var photoFriend: String
+    let uiImage: UIImage
+    var storedImages: [UIImage] = []
 
+    init(nameFriend: String, photoFriend: String, storedImages: [String]) {
+        self.nameFriend = nameFriend
+        self.photoFriend = photoFriend
+
+        uiImage = UIImage(named: photoFriend) ?? UIImage()
+
+        // Собираем массив фоток юзера из имён фоток
+        for storedImage in storedImages {
+            guard let image = UIImage(named: storedImage) else { continue }
+            self.storedImages.append(image)
+        }
+    }
 //    static func loadAllFriends() -> [Friend] {
 //         return [Friend(nameFriend: "Серега", photoFriend: "ava"),
 //                 Friend(nameFriend: "Васян", photoFriend: "ava"),

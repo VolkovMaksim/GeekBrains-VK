@@ -7,12 +7,34 @@
 
 import UIKit
 
-@IBDesignable class TestView: UIView {
+class TestView: UIView {
 
     var image: UIImage = UIImage() {
         didSet {
             imageView.image = image
         }
+    }
+    
+    lazy var tapGestureRecognizer: UITapGestureRecognizer = {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(onClick))
+        recognizer.numberOfTapsRequired = 1 // Распознаем кол-во нажатий
+        recognizer.numberOfTouchesRequired = 1 // Кол-во пальцев необходимых для реагирования
+        
+        return recognizer
+    }()
+    
+    @objc func onClick() {
+        let boundsSize = self.imageView.bounds.size
+        self.imageView.bounds.size = CGSize(width: self.imageView.bounds.width / 2, height: self.imageView.bounds.height / 2)
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 0,
+                       options: [],
+                       animations: {
+            self.imageView.bounds.size = boundsSize
+        },
+                       completion: nil)
     }
 
     private var imageView: UIImageView = UIImageView()
@@ -21,13 +43,16 @@ import UIKit
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupImage()
+        addGestureRecognizer(tapGestureRecognizer)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.setupImage()
+        addGestureRecognizer(tapGestureRecognizer)
     }
 
+    
     @IBInspectable var shadowColor: UIColor = .black {
         didSet {
             self.updateColor()

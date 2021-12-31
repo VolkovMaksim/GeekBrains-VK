@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FriendListTableViewController: UITableViewController {
+class FriendListTableViewController: UITableViewController, UISearchBarDelegate {
     
     private var friends = FriendsLoader.iNeedFriends()
     private var lettersOfNames = [String]()
@@ -16,6 +16,7 @@ class FriendListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.showsVerticalScrollIndicator = false
+        
         loadLetters()
     }
 
@@ -39,12 +40,23 @@ class FriendListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyFriend", for: indexPath)
-
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyFriend",
+                                                     for: indexPath) as? FriendListCell
+        else {
+            return UITableViewCell()
+        }
+        
         let section = friends[indexPath.section]
-        cell.textLabel?.text = section.data[indexPath.row].nameFriend
-        cell.imageView?.image = UIImage(named: section.data[indexPath.row].photoFriend)
+//        let name = section.data[indexPath.row].nameFriend
+//        let image = section.data[indexPath.row].photoFriend
+        
 
+        cell.friendsName.text = section.data[indexPath.row].nameFriend
+        cell.friendsIcon.image = UIImage(named: section.data[indexPath.row].photoFriend)!
+//        cell.configure(name: name, image: UIImage(named: image.first) ?? UIImage())
+//        cell.friendsName?.text = section.data[indexPath.row].nameFriend
+//        cell.imageView?.image = UIImage(named: section.data[indexPath.row].photoFriend)
 
         return cell
     }

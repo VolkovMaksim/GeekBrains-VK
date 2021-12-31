@@ -46,11 +46,11 @@ class GroupsTableViewController: UITableViewController {
             return
         }
         if let indexPath = otherGroupVC.tableView.indexPathForSelectedRow {
-            let group = otherGroupVC.groups[indexPath.row]
+            let group = otherGroupVC.filteredGroups[indexPath.row]
             if !myGroup.contains(group) {
                 myGroup.append(group)
-                print(otherGroupVC.groups.contains(group))
-                otherGroupVC.groups.removeAll(where: {$0 == group})
+                print(otherGroupVC.filteredGroups.contains(group))
+                otherGroupVC.filteredGroups.removeAll(where: {$0 == group})
                 tableView.reloadData()
             }
         }

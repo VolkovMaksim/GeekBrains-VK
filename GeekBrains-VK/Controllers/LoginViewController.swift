@@ -13,7 +13,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logoSignIn: UIImageView!
     @IBOutlet weak var loginTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
-
+    @IBOutlet weak var circleOne: UIImageView!
+    @IBOutlet weak var circleTwo: UIImageView!
+    @IBOutlet weak var circleThree: UIImageView!
+    
+    // MARK: - LifiCycle
+    override func loadView() {
+        super.loadView()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,8 +57,13 @@ class LoginViewController: UIViewController {
                                                object: nil)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        runAnimate()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self,
                                                   name: UIResponder.keyboardWillShowNotification,
                                                   object: nil)
@@ -115,6 +127,53 @@ extension LoginViewController: UIScrollViewDelegate {
 }
 
 private extension LoginViewController {
+    
+    // Анимация лого
+//    func runAnimate() {
+//        transitionAnimate()
+//        // 1- время анимации, 2- замыкание(анимация), 4- если все норм отработало, тогда что мы делаем дальше
+//        UIView.animate(withDuration: 2) {
+//            self.logoSignIn.alpha -= 1
+//        } completion: { _ in
+//            self.revertAnimate()
+//        }
+//    }
+    
+    func runAnimate() {
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       options: [.repeat, .autoreverse],
+                       animations: {
+            self.circleOne.alpha -= 1
+        },
+                       completion: nil)
+        UIView.animate(withDuration: 1,
+                       delay: 0.5,
+                       options: [.repeat, .autoreverse],
+                       animations: {
+            self.circleTwo.alpha -= 1
+        },
+                       completion: nil)
+        UIView.animate(withDuration: 1,
+                       delay: 1,
+                       options: [.repeat, .autoreverse],
+                       animations: {
+            self.circleThree.alpha -= 1
+        },
+                       completion: nil)
+    }
+    
+    
+    func transitionAnimate() {
+        UIView.transition(with: loginTF,
+                          duration: 2,
+                          options: [.repeat, .autoreverse, .transitionCrossDissolve],
+                          animations: {
+            self.loginTF.placeholder = "ВВОДИТЬ СЮДА"
+        })
+
+    }
+    
     func checkUserData() -> Bool {
 //        guard
 //            let login = loginTF.text,

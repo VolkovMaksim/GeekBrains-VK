@@ -9,27 +9,27 @@ import UIKit
 
 class FriendsLoader {
     
-    static var friends = [Friend(nameFriend: "Серега", photoFriend: "ava"),
-                 Friend(nameFriend: "Васян", photoFriend: "ava"),
-                 Friend(nameFriend: "Феофан", photoFriend: "ava"),
-                 Friend(nameFriend: "Игорь", photoFriend: "ava"),
-                 Friend(nameFriend: "Кент с горы", photoFriend: "ava"),
-                 Friend(nameFriend: "Чилинтано", photoFriend: "ava"),
-                 Friend(nameFriend: "Барак Обойма", photoFriend: "ava"),
-                 Friend(nameFriend: "Черчиль", photoFriend: "ava"),
-                 Friend(nameFriend: "Гусь щипаный", photoFriend: "ava"),
-                 Friend(nameFriend: "Димас-вурдалас", photoFriend: "ava"),
-                 Friend(nameFriend: "Жареный компот", photoFriend: "ava"),
-                 Friend(nameFriend: "Афанас", photoFriend: "ava"),
-                 Friend(nameFriend: "Пахан", photoFriend: "ava"),
-                 Friend(nameFriend: "Кирпич", photoFriend: "ava"),
-                 Friend(nameFriend: "Атаман Лютый", photoFriend: "ava"),
-                 Friend(nameFriend: "Бурнаш", photoFriend: "ava"),
-                 Friend(nameFriend: "Чекист", photoFriend: "ava"),
-                 Friend(nameFriend: "Амбал", photoFriend: "ava"),
-                 Friend(nameFriend: "Мамбет", photoFriend: "ava"),
-                 Friend(nameFriend: "Инокентий Валерьевич", photoFriend: "ava"),
-                 Friend(nameFriend: "Алеша", photoFriend: "ava")]
+    static var friends = [Friend(nameFriend: "Серега", photoFriend: "ava", storedImages: ["1", "2", "3", "4"]),
+                 Friend(nameFriend: "Васян", photoFriend: "ava", storedImages: ["1", "2", "3", "4"]),
+                 Friend(nameFriend: "Феофан", photoFriend: "ava", storedImages: ["1", "2", "3", "4"]),
+                 Friend(nameFriend: "Игорь", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Кент с горы", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Чилинтано", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Барак Обойма", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Черчиль", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Гусь щипаный", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Димас-вурдалас", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Жареный компот", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Афанас", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Пахан", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Кирпич", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Атаман Лютый", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Бурнаш", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Чекист", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Амбал", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Мамбет", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Инокентий Валерьевич", photoFriend: "ava", storedImages: ["1","2","3","4"]),
+                 Friend(nameFriend: "Алеша", photoFriend: "ava", storedImages: ["1","2","3","4"])]
 
     static func iNeedFriends() -> [FriendsSection] {
         let sortedArray = sortFriends(array: friends)

@@ -58,15 +58,24 @@ class LikeControl: UIControl {
 
     @objc func onClick() {
         if likesCount == 0 {
-            self.likesLable.text = "1"
+            
             likesCount = 1
 
+            UIView.transition(with: likesLable,
+                              duration: 0.9,
+                              options: .transitionFlipFromTop) {
+                self.likesLable.text = "1"
+            }
             UIView.transition(from: likesImageEmpty,
                               to: likesImageFill,
                               duration: 0.2,
                               options: .transitionCrossDissolve)
         } else {
-            self.likesLable.text = "0"
+            UIView.transition(with: likesLable,
+                              duration: 0.9,
+                              options: .transitionFlipFromBottom) {
+                self.likesLable.text = "0"
+            }
             likesCount = 0
 
             UIView.transition(from: likesImageFill,
