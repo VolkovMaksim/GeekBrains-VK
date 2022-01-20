@@ -11,10 +11,21 @@ class FriendListTableViewController: UITableViewController, UISearchBarDelegate 
     
     private var friends = FriendsLoader.iNeedFriends()
     private var lettersOfNames = [String]()
+    
+    var service = FriendService()
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.searchController = {
+                    let s = UISearchController(searchResultsController: nil)
+                     s.obscuresBackgroundDuringPresentation = false
+                     s.searchBar.placeholder = "Search Name..."
+                     s.searchBar.sizeToFit()
+                     s.searchBar.searchBarStyle = .prominent
+                     s.searchBar.delegate = self
+                     return s
+                 }()
         self.tableView.showsVerticalScrollIndicator = false
         
         loadLetters()
@@ -61,9 +72,9 @@ class FriendListTableViewController: UITableViewController, UISearchBarDelegate 
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return createHeaderView(section: section)
-    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return createHeaderView(section: section)
+//    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is FriendCollectionViewController {
@@ -84,16 +95,16 @@ private extension FriendListTableViewController {
         }
     }
 
-    func createHeaderView(section: Int) -> UIView {
-        let header = GradientView()
-        header.startColor = .black
-        header.endColor = .gray
-
-        let letter = UILabel(frame: CGRect(x: 30, y: 5, width: 20, height: 20))
-        letter.textColor = .white
-        letter.text = lettersOfNames[section]
-        letter.font = UIFont.systemFont(ofSize: 14)
-        header.addSubview(letter)
-        return header
-    }
+//    func createHeaderView(section: Int) -> UIView {
+//        let header = GradientView()
+//        header.startColor = .black
+//        header.endColor = .gray
+//
+//        let letter = UILabel(frame: CGRect(x: 30, y: 5, width: 20, height: 20))
+//        letter.textColor = .white
+//        letter.text = lettersOfNames[section]
+//        letter.font = UIFont.systemFont(ofSize: 14)
+//        header.addSubview(letter)
+//        return header
+//    }
 }

@@ -53,7 +53,7 @@ private extension LoginVKViewController {
         urlComponents.path = "/method/friends.get"
         urlComponents.queryItems = [
             URLQueryItem(name: "access_token", value: session.token),
-            URLQueryItem(name: "v", value: "5.81")
+            URLQueryItem(name: "v", value: "5.131")
         ]
         var request = URLRequest(url: urlComponents.url!)
         

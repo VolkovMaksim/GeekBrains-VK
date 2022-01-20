@@ -33,9 +33,11 @@
 		3792FADD27707ABF00FA7EA7 /* FriendsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3792FADC27707ABF00FA7EA7 /* FriendsSection.swift */; };
 		3792FAE127707CD000FA7EA7 /* FriendsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3792FAE027707CD000FA7EA7 /* FriendsLoader.swift */; };
 		3792FAF22770BC2000FA7EA7 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3792FAF12770BC2000FA7EA7 /* TestView.swift */; };
+		37A685DA27957C7B00AD386F /* FriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A685D927957C7B00AD386F /* FriendService.swift */; };
+		37A685DC27957D3800AD386F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A685DB27957D3800AD386F /* ImageLoader.swift */; };
 		37C3427527661056008F9B9B /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C3427427661056008F9B9B /* LikeControl.swift */; };
 		37C34277276629C8008F9B9B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C34276276629C8008F9B9B /* GradientView.swift */; };
-		37CFBF482790648B0020ACC2 /* FriendList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFBF472790648B0020ACC2 /* FriendList.swift */; };
+		37CFBF482790648B0020ACC2 /* FriendsVK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFBF472790648B0020ACC2 /* FriendsVK.swift */; };
 		37FC1D42275A738A00E06479 /* MyFriendViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FC1D41275A738A00E06479 /* MyFriendViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,9 +70,11 @@
 		3792FADC27707ABF00FA7EA7 /* FriendsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsSection.swift; sourceTree = "<group>"; };
 		3792FAE027707CD000FA7EA7 /* FriendsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsLoader.swift; sourceTree = "<group>"; };
 		3792FAF12770BC2000FA7EA7 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		37A685D927957C7B00AD386F /* FriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendService.swift; sourceTree = "<group>"; };
+		37A685DB27957D3800AD386F /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		37C3427427661056008F9B9B /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		37C34276276629C8008F9B9B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		37CFBF472790648B0020ACC2 /* FriendList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendList.swift; sourceTree = "<group>"; };
+		37CFBF472790648B0020ACC2 /* FriendsVK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVK.swift; sourceTree = "<group>"; };
 		37FC1D41275A738A00E06479 /* MyFriendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -288,7 +292,9 @@
 		37CFBF44279064460020ACC2 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				37CFBF472790648B0020ACC2 /* FriendList.swift */,
+				37CFBF472790648B0020ACC2 /* FriendsVK.swift */,
+				37A685D927957C7B00AD386F /* FriendService.swift */,
+				37A685DB27957D3800AD386F /* ImageLoader.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 				37FC1D42275A738A00E06479 /* MyFriendViewCell.swift in Sources */,
 				3715DBD7277D6F4A00FBC3B2 /* FriendListCell.swift in Sources */,
 				376044DA27561D28001E223B /* Friend.swift in Sources */,
+				37A685DA27957C7B00AD386F /* FriendService.swift in Sources */,
 				3792FAE127707CD000FA7EA7 /* FriendsLoader.swift in Sources */,
 				3747C07127593A690096FBD4 /* FriendCollectionViewController.swift in Sources */,
 				3792FADD27707ABF00FA7EA7 /* FriendsSection.swift in Sources */,
@@ -392,13 +399,14 @@
 				3792FAF22770BC2000FA7EA7 /* TestView.swift in Sources */,
 				3747C06F27593A4C0096FBD4 /* FriendListTableViewController.swift in Sources */,
 				376044C9275552EC001E223B /* LoginViewController.swift in Sources */,
+				37A685DC27957D3800AD386F /* ImageLoader.swift in Sources */,
 				376044C5275552EC001E223B /* AppDelegate.swift in Sources */,
 				3762A761277F532B009DEF69 /* PushAnimator.swift in Sources */,
 				376044DC27561D4E001E223B /* Group.swift in Sources */,
 				376044C7275552EC001E223B /* SceneDelegate.swift in Sources */,
 				3762A766277F566D009DEF69 /* Session.swift in Sources */,
 				3732E884277AFBAE0010700E /* CustomNewsTableViewCell.swift in Sources */,
-				37CFBF482790648B0020ACC2 /* FriendList.swift in Sources */,
+				37CFBF482790648B0020ACC2 /* FriendsVK.swift in Sources */,
 				37C3427527661056008F9B9B /* LikeControl.swift in Sources */,
 				3762A75C277F529D009DEF69 /* CustomNavigationController.swift in Sources */,
 				3762A75E277F52C1009DEF69 /* InteractiveTransition.swift in Sources */,
