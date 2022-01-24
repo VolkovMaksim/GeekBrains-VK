@@ -11,10 +11,10 @@ struct FriendsVK: Decodable {
 
 struct ResponseFriends: Decodable {
     let count: Int
-    let items: [VKFriend]
+    let items: [Friend]
 }
 
-struct VKFriend: Decodable {
+struct Friend: Decodable {
     let id: Int
     let firstName, lastName: String
     let photo50: String

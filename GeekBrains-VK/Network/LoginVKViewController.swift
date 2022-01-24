@@ -35,9 +35,9 @@ private extension LoginVKViewController {
             URLQueryItem(name: "client_id", value: "8047756"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "262150"),
+            URLQueryItem(name: "scope", value: "offline,friends, photos, groups"),
             URLQueryItem(name: "response_type", value: "token"),
-            URLQueryItem(name: "v", value: "5.68")
+            URLQueryItem(name: "revoke", value: "0")
         ]
         print(urlComponents.url!)
         let request = URLRequest(url: urlComponents.url!)
@@ -56,7 +56,7 @@ private extension LoginVKViewController {
             URLQueryItem(name: "v", value: "5.131")
         ]
         var request = URLRequest(url: urlComponents.url!)
-        
+        print(request)
         request.httpMethod = "GET"
 
         // задача для запуска
@@ -89,7 +89,7 @@ private extension LoginVKViewController {
             // в замыкании данные, полученные от сервера, мы преобразуем в json
             let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
             // выводим в консоль
-            print(json!)
+//            print(json!)
         }
         // запускаем задачу
         task.resume()
@@ -114,7 +114,7 @@ private extension LoginVKViewController {
             // в замыкании данные, полученные от сервера, мы преобразуем в json
             let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
             // выводим в консоль
-            print(json!)
+//            print(json!)
         }
         // запускаем задачу
         task.resume()
@@ -135,12 +135,13 @@ private extension LoginVKViewController {
         var request = URLRequest(url: urlComponents.url!)
         request.httpMethod = "GET"
 
+        print(request)
         // задача для запуска
         let task = usrSession.dataTask(with: request) { (data, response, error) in
             // в замыкании данные, полученные от сервера, мы преобразуем в json
             let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
             // выводим в консоль
-            print(json!)
+//            print(json!)
         }
         // запускаем задачу
         task.resume()
@@ -148,6 +149,7 @@ private extension LoginVKViewController {
 }
 
 extension LoginVKViewController: WKNavigationDelegate {
+   
     func webView(_ webView: WKWebView,
                  decidePolicyFor navigationResponse: WKNavigationResponse,
                  decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
@@ -173,15 +175,12 @@ extension LoginVKViewController: WKNavigationDelegate {
         
         if let token = params["access_token"], let userId = params["user_id"] {
             session.token = token
+            print(session.token)
             session.userId = Int(userId)!
-            print("Token \(token)")
-            print("user_id \(userId)")
-            performSegue(withIdentifier: "login", sender: self)
+            print(session.userId)
             decisionHandler(.cancel)
+            performSegue(withIdentifier: "login", sender: self)
         }
-        frendList()
-        groupList()
-        photoList()
-        groupSearchList()
+//        frendList()
     }
 }

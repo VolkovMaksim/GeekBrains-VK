@@ -32,16 +32,24 @@ final class FriendService {
     }()
 
     func loadFriend(completion: @escaping ((Result<FriendsVK, FriendsError>) -> ())) {
-        guard let token = Session.instance.token else { return }
-        let params: [String: String] = ["v": "5.81",
+        guard let token = Session.instance.token else {
+            return
+        }
+        let params: [String: String] = ["v": "5.131",
                                         "access_token": token,
                                         "fields": "photo_50"
         ]
+        print(params)
 
         let url = configureUrl(token: token,
                                method: .friendsGet,
                                htttpMethod: .get,
                                params: params)
+
+//        let url = configureUrl(token: token,
+//                               method: .friendsGet,
+//                               htttpMethod: .get,
+//                               params: params)
         print(url)
 
         let task = session.dataTask(with: url) { data, response, error in

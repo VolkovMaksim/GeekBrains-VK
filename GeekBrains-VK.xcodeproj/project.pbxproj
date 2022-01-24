@@ -22,7 +22,7 @@
 		376044CC275552EC001E223B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376044CA275552EC001E223B /* Main.storyboard */; };
 		376044CE275552ED001E223B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376044CD275552ED001E223B /* Assets.xcassets */; };
 		376044D1275552ED001E223B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376044CF275552ED001E223B /* LaunchScreen.storyboard */; };
-		376044DA27561D28001E223B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376044D927561D28001E223B /* Friend.swift */; };
+		376044DA27561D28001E223B /* FriendLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376044D927561D28001E223B /* FriendLocal.swift */; };
 		376044DC27561D4E001E223B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376044DB27561D4E001E223B /* Group.swift */; };
 		3762A759277E6380009DEF69 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762A758277E6380009DEF69 /* CarouselViewController.swift */; };
 		3762A75C277F529D009DEF69 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762A75B277F529D009DEF69 /* CustomNavigationController.swift */; };
@@ -39,6 +39,7 @@
 		37C34277276629C8008F9B9B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C34276276629C8008F9B9B /* GradientView.swift */; };
 		37CFBF482790648B0020ACC2 /* FriendsVK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CFBF472790648B0020ACC2 /* FriendsVK.swift */; };
 		37FC1D42275A738A00E06479 /* MyFriendViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FC1D41275A738A00E06479 /* MyFriendViewCell.swift */; };
+		37FEC528279AE4D200113BBE /* FriendsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FEC527279AE4D200113BBE /* FriendsServiceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +60,7 @@
 		376044CD275552ED001E223B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		376044D0275552ED001E223B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		376044D2275552ED001E223B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		376044D927561D28001E223B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		376044D927561D28001E223B /* FriendLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendLocal.swift; sourceTree = "<group>"; };
 		376044DB27561D4E001E223B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		3762A758277E6380009DEF69 /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
 		3762A75B277F529D009DEF69 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 		37C34276276629C8008F9B9B /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		37CFBF472790648B0020ACC2 /* FriendsVK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVK.swift; sourceTree = "<group>"; };
 		37FC1D41275A738A00E06479 /* MyFriendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendViewCell.swift; sourceTree = "<group>"; };
+		37FEC527279AE4D200113BBE /* FriendsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsServiceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +232,7 @@
 		3792FAEA2770B47100FA7EA7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				376044D927561D28001E223B /* Friend.swift */,
+				376044D927561D28001E223B /* FriendLocal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +297,7 @@
 				37CFBF472790648B0020ACC2 /* FriendsVK.swift */,
 				37A685D927957C7B00AD386F /* FriendService.swift */,
 				37A685DB27957D3800AD386F /* ImageLoader.swift */,
+				37FEC527279AE4D200113BBE /* FriendsServiceManager.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -389,11 +392,12 @@
 				3762A763277F5347009DEF69 /* PopAnimator.swift in Sources */,
 				37FC1D42275A738A00E06479 /* MyFriendViewCell.swift in Sources */,
 				3715DBD7277D6F4A00FBC3B2 /* FriendListCell.swift in Sources */,
-				376044DA27561D28001E223B /* Friend.swift in Sources */,
+				376044DA27561D28001E223B /* FriendLocal.swift in Sources */,
 				37A685DA27957C7B00AD386F /* FriendService.swift in Sources */,
 				3792FAE127707CD000FA7EA7 /* FriendsLoader.swift in Sources */,
 				3747C07127593A690096FBD4 /* FriendCollectionViewController.swift in Sources */,
 				3792FADD27707ABF00FA7EA7 /* FriendsSection.swift in Sources */,
+				37FEC528279AE4D200113BBE /* FriendsServiceManager.swift in Sources */,
 				3762A759277E6380009DEF69 /* CarouselViewController.swift in Sources */,
 				37C34277276629C8008F9B9B /* GradientView.swift in Sources */,
 				3792FAF22770BC2000FA7EA7 /* TestView.swift in Sources */,

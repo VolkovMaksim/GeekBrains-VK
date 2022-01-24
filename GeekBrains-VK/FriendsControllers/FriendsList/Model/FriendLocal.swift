@@ -7,18 +7,18 @@
 
 import UIKit
 
-struct Friend {
+struct FriendLocal {
     
-    var nameFriend: String
-    var photoFriend: String
+    let name: String
+    let image: String
     let uiImage: UIImage
     var storedImages: [UIImage] = []
 
-    init(nameFriend: String, photoFriend: String, storedImages: [String]) {
-        self.nameFriend = nameFriend
-        self.photoFriend = photoFriend
+    init(name: String, image: String, storedImages: [String]) {
+        self.name = name
+        self.image = image
 
-        uiImage = UIImage(named: photoFriend) ?? UIImage()
+        uiImage = UIImage(named: image) ?? UIImage()
 
         // Собираем массив фоток юзера из имён фоток
         for storedImage in storedImages {

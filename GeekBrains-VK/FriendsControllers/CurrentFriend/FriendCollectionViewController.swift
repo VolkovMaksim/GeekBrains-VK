@@ -9,7 +9,7 @@ import UIKit
 
 class FriendCollectionViewController: UICollectionViewController {
     
-    var friend: Friend?
+    var friend: FriendLocal?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,8 @@ class FriendCollectionViewController: UICollectionViewController {
         guard
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Friend", for: indexPath) as?
                 MyFriendViewCell else { return UICollectionViewCell() }
-        cell.friendsPhoto.image = UIImage(named: friend!.photoFriend)
-        cell.friendsName.text = friend?.nameFriend
+        cell.friendsPhoto.image = UIImage(named: friend!.image)
+        cell.friendsName.text = friend?.name
         
 
         return cell

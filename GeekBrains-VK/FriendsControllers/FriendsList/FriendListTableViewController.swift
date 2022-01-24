@@ -9,10 +9,10 @@ import UIKit
 
 class FriendListTableViewController: UITableViewController, UISearchBarDelegate {
     
-    private var friends = FriendsLoader.iNeedFriends()
-    private var lettersOfNames = [String]()
-    
-    var service = FriendService()
+    var friends: [FriendsSection] = []
+    var lettersOfNames = [String]()
+//    var filteredFriends: [FriendsSection] = []
+    var service = FriendsServiceManager()
 
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -27,8 +27,8 @@ class FriendListTableViewController: UITableViewController, UISearchBarDelegate 
                      return s
                  }()
         self.tableView.showsVerticalScrollIndicator = false
-        
-        loadLetters()
+        fetchFriends()
+    print(friends)
     }
 
     // MARK: - Table view data source
@@ -59,16 +59,13 @@ class FriendListTableViewController: UITableViewController, UISearchBarDelegate 
         }
         
         let section = friends[indexPath.section]
-//        let name = section.data[indexPath.row].nameFriend
-//        let image = section.data[indexPath.row].photoFriend
-        
+        let name = section.data[indexPath.row].firstName
+        let photo = section.data[indexPath.row].photo50
+        cell.friendsName.text = name
 
-        cell.friendsName.text = section.data[indexPath.row].nameFriend
-        cell.friendsIcon.image = UIImage(named: section.data[indexPath.row].photoFriend)!
-//        cell.configure(name: name, image: UIImage(named: image.first) ?? UIImage())
-//        cell.friendsName?.text = section.data[indexPath.row].nameFriend
-//        cell.imageView?.image = UIImage(named: section.data[indexPath.row].photoFriend)
-
+        service.loadImage(url: photo) { image in
+            cell.friendsIcon.image = image
+        }
         return cell
     }
 
@@ -82,7 +79,7 @@ class FriendListTableViewController: UITableViewController, UISearchBarDelegate 
             guard let indexPathSection = tableView.indexPathForSelectedRow?.section else { return }
             guard let indexPathRow = tableView.indexPathForSelectedRow?.row else { return }
             let section = friends[indexPathSection]
-            vc.friend = section.data[indexPathRow]
+//            vc.friend = section.data[indexPathRow]
         }
     }
 }
@@ -92,6 +89,17 @@ private extension FriendListTableViewController {
     func loadLetters() {
         for user in friends {
             lettersOfNames.append(String(user.key))
+        }
+    }
+    
+    func fetchFriends() {
+        service.loadFriends { [weak self] friends in
+            guard let self = self else { return }
+            self.friends = friends
+            self.loadLetters()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 
@@ -107,4 +115,16 @@ private extension FriendListTableViewController {
 //        header.addSubview(letter)
 //        return header
 //    }
+}
+
+extension UIImage {
+    convenience init(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: (image?.cgImage!)!)
+    }
 }
