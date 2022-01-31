@@ -10,8 +10,8 @@ import UIKit
 class OtherGroupsTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    var groups = Group.loadAllGroups()
-    var filteredGroups: [Group]!
+    var groups = GroupLocal.loadAllGroups()
+    var filteredGroups: [GroupLocal]!
 
     override func viewDidLoad() {
         super.viewDidLoad()

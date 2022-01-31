@@ -43,109 +43,6 @@ private extension LoginVKViewController {
         let request = URLRequest(url: urlComponents.url!)
         webView.load(request)
     }
-    
-    func frendList() {
-        let configuration = URLSessionConfiguration.default
-        let usrSession = URLSession(configuration: configuration)
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/friends.get"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "access_token", value: session.token),
-            URLQueryItem(name: "v", value: "5.131")
-        ]
-        var request = URLRequest(url: urlComponents.url!)
-        print(request)
-        request.httpMethod = "GET"
-
-        // задача для запуска
-        let task = usrSession.dataTask(with: request) { (data, response, error) in
-            // в замыкании данные, полученные от сервера, мы преобразуем в json
-            let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-            // выводим в консоль
-            print(json!)
-        }
-        // запускаем задачу
-        task.resume()
-    }
-    
-    func groupList() {
-        let configuration = URLSessionConfiguration.default
-        let usrSession = URLSession(configuration: configuration)
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/groups.get"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "access_token", value: session.token),
-            URLQueryItem(name: "v", value: "5.81")
-        ]
-        var request = URLRequest(url: urlComponents.url!)
-        request.httpMethod = "GET"
-
-        // задача для запуска
-        let task = usrSession.dataTask(with: request) { (data, response, error) in
-            // в замыкании данные, полученные от сервера, мы преобразуем в json
-            let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-            // выводим в консоль
-//            print(json!)
-        }
-        // запускаем задачу
-        task.resume()
-    }
-    
-    func photoList() {
-        let configuration = URLSessionConfiguration.default
-        let usrSession = URLSession(configuration: configuration)
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/photos.getAll"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "access_token", value: session.token),
-            URLQueryItem(name: "v", value: "5.81")
-        ]
-        var request = URLRequest(url: urlComponents.url!)
-        request.httpMethod = "GET"
-
-        // задача для запуска
-        let task = usrSession.dataTask(with: request) { (data, response, error) in
-            // в замыкании данные, полученные от сервера, мы преобразуем в json
-            let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-            // выводим в консоль
-//            print(json!)
-        }
-        // запускаем задачу
-        task.resume()
-    }
-    
-    func groupSearchList() {
-        let configuration = URLSessionConfiguration.default
-        let usrSession = URLSession(configuration: configuration)
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.vk.com"
-        urlComponents.path = "/method/groups.search"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "access_token", value: session.token),
-            URLQueryItem(name: "q", value: "fjord"),
-            URLQueryItem(name: "v", value: "5.81")
-        ]
-        var request = URLRequest(url: urlComponents.url!)
-        request.httpMethod = "GET"
-
-        print(request)
-        // задача для запуска
-        let task = usrSession.dataTask(with: request) { (data, response, error) in
-            // в замыкании данные, полученные от сервера, мы преобразуем в json
-            let json = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-            // выводим в консоль
-//            print(json!)
-        }
-        // запускаем задачу
-        task.resume()
-    }
 }
 
 extension LoginVKViewController: WKNavigationDelegate {
@@ -175,12 +72,9 @@ extension LoginVKViewController: WKNavigationDelegate {
         
         if let token = params["access_token"], let userId = params["user_id"] {
             session.token = token
-            print(session.token)
             session.userId = Int(userId)!
-            print(session.userId)
             decisionHandler(.cancel)
             performSegue(withIdentifier: "login", sender: self)
         }
-//        frendList()
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class FriendsServiceManager {
     
-    private var service = FriendService()
+    private var service = VKService()
     private let imageService = ImageLoader()
     
     func loadFriends(completion: @escaping(([FriendsSection]) -> Void)) {
@@ -36,11 +36,8 @@ class FriendsServiceManager {
             case .failure(let error):
                 debugPrint("Error: \(error.localizedDescription)")
             }
-            
         }
     }
-    
-    
 }
 
 private extension FriendsServiceManager {

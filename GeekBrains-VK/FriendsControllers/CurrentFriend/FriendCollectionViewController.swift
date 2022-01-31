@@ -9,7 +9,7 @@ import UIKit
 
 class FriendCollectionViewController: UICollectionViewController {
     
-    var friend: FriendLocal?
+    var friend: Friend?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +29,8 @@ class FriendCollectionViewController: UICollectionViewController {
         guard
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Friend", for: indexPath) as?
                 MyFriendViewCell else { return UICollectionViewCell() }
-        cell.friendsPhoto.image = UIImage(named: friend!.image)
-        cell.friendsName.text = friend?.name
+//        cell.friendsPhoto.image = UIImage(named: friend?.photo50)
+//        cell.friendsName.text = friend?.firstName
         
 
         return cell
@@ -39,10 +39,10 @@ class FriendCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "CarouselViewController") as?
                 CarouselViewController else { return }
-        if let images = friend?.storedImages {
-            vc.photos = images
-        }
-        vc.selectedPhoto = indexPath.item
-        self.navigationController?.pushViewController(vc, animated: true)
+//        if let images = friend?.storedImages {
+//            vc.photos = images
+//        }
+//        vc.selectedPhoto = indexPath.item
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

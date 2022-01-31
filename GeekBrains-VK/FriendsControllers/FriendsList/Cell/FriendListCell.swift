@@ -12,9 +12,9 @@ class FriendListCell: UITableViewCell {
     @IBOutlet weak var friendsName: UILabel!
     @IBOutlet weak var friendsIcon: TestView!
 
-    func configure(model: FriendLocal) {
-        friendsName.text = model.name
-        guard let image = UIImage(named: model.image) else { return }
+    func configure(model: Friend) {
+        friendsName.text = model.firstName
+        guard let image = UIImage(named: model.photo50) else { return }
         friendsIcon.image = image
     }
 }

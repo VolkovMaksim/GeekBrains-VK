@@ -381,18 +381,45 @@
         <scene sceneID="9gW-VS-p4y">
             <objects>
                 <tableViewController id="emi-nZ-l6U" customClass="GroupsTableViewController" customModule="GeekBrains_VK" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="oP6-wA-faW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="oP6-wA-faW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyGroup" id="r8r-kv-2tp">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyGroup" rowHeight="80" id="r8r-kv-2tp" customClass="GroupsCell" customModule="GeekBrains_VK" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r8r-kv-2tp" id="vkI-67-hK1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYK-nh-aVF" customClass="TestView" customModule="GeekBrains_VK" customModuleProvider="target">
+                                            <rect key="frame" x="329" y="7.5" width="65" height="65"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="65" id="Cet-YW-GW2"/>
+                                                <constraint firstAttribute="height" constant="65" id="gSH-25-FbB"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6z-CG-YBX">
+                                            <rect key="frame" x="20" y="30" width="299" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="XYK-nh-aVF" secondAttribute="trailing" constant="20" symbolic="YES" id="Op7-nO-faM"/>
+                                        <constraint firstItem="XYK-nh-aVF" firstAttribute="leading" secondItem="w6z-CG-YBX" secondAttribute="trailing" constant="10" id="h6u-pl-R9Z"/>
+                                        <constraint firstItem="XYK-nh-aVF" firstAttribute="centerY" secondItem="vkI-67-hK1" secondAttribute="centerY" id="nq0-AX-jKH"/>
+                                        <constraint firstItem="w6z-CG-YBX" firstAttribute="centerY" secondItem="vkI-67-hK1" secondAttribute="centerY" id="qa7-DJ-prh"/>
+                                        <constraint firstItem="w6z-CG-YBX" firstAttribute="leading" secondItem="vkI-67-hK1" secondAttribute="leadingMargin" id="vt0-zf-I8g"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="groupImage" destination="XYK-nh-aVF" id="1XM-rL-hN8"/>
+                                    <outlet property="nameGroup" destination="w6z-CG-YBX" id="Sxd-gZ-Qkd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

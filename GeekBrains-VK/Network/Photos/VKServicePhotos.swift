@@ -1,19 +1,19 @@
 //
-//  FriendService.swift
+//  VKServicePhotos.swift
 //  GeekBrains-VK
 //
-//  Created by Maksim Volkov on 17.01.2022.
+//  Created by Maksim Volkov on 31.01.2022.
 //
 
 import Foundation
 
-enum FriendsError: Error {
+enum PhotosError: Error {
     case parseError
     case requestError(Error)
 }
 
 fileprivate enum TypeMethods: String {
-    case friendsGet = "/method/friends.get"
+    case photosGet = "/method/photos.getAll"
 }
 
 fileprivate enum TypeRequests: String {
@@ -21,7 +21,7 @@ fileprivate enum TypeRequests: String {
     case post = "POST"
 }
 
-final class FriendService {
+final class VKServicePhotos {
     private let scheme = "https"
     private let host = "api.vk.com"
 
@@ -30,26 +30,19 @@ final class FriendService {
         let session = URLSession(configuration: config)
         return session
     }()
-
-    func loadFriend(completion: @escaping ((Result<FriendsVK, FriendsError>) -> ())) {
+    
+    func loadPhoto(completion: @escaping ((Result<PhotosVK, ServicesError>) -> ())) {
         guard let token = Session.instance.token else {
             return
         }
-        let params: [String: String] = ["v": "5.131",
-                                        "access_token": token,
-                                        "fields": "photo_50"
-        ]
-        print(params)
+        let params: [String: String] = [ "fields": "photo_50"]
 
         let url = configureUrl(token: token,
-                               method: .friendsGet,
+                               method: .photosGet,
                                htttpMethod: .get,
                                params: params)
 
-//        let url = configureUrl(token: token,
-//                               method: .friendsGet,
-//                               htttpMethod: .get,
-//                               params: params)
+
         print(url)
 
         let task = session.dataTask(with: url) { data, response, error in
@@ -61,7 +54,7 @@ final class FriendService {
             let decoder = JSONDecoder()
 
             do {
-                let result = try decoder.decode(FriendsVK.self, from: data)
+                let result = try decoder.decode(PhotosVK.self, from: data)
                 print(result)
                 return completion(.success(result))
             } catch {
@@ -72,7 +65,7 @@ final class FriendService {
     }
 }
 
-private extension FriendService {
+private extension VKServicePhotos {
     func configureUrl(token: String,
                       method: TypeMethods,
                       htttpMethod: TypeRequests,

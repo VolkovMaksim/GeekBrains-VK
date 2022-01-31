@@ -9,10 +9,13 @@ import UIKit
 
 class GroupsTableViewController: UITableViewController {
 
-    var myGroup: [Group] = []
+    var groups: [Group] = []
+    var myGroup: [GroupLocal] = []
+    var service = GroupsServiceManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchGroups()
     }
 
     // MARK: - Table view data source
@@ -20,23 +23,29 @@ class GroupsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // количество строк равно количеству элементов массива
-        return myGroup.count
+        return groups.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroup", for: indexPath)
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroup", for: indexPath) as? GroupsCell
+        else {
+            return UITableViewCell()
+        }
         // настройка картинки группы
-        cell.imageView?.image = UIImage(named: myGroup[indexPath.row].logo)
+        service.loadImage(url: groups[indexPath.row].photo100) { image in
+            cell.groupImage.image = image
+        }
         // настройка названия группы
-        cell.textLabel?.text = myGroup[indexPath.row].name
+        cell.nameGroup.text = groups[indexPath.row].name
         return cell
     }
     
     // этот метод позволяет изменить размер ячейки
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 64
+//    }
     
     @IBAction func unwind(_ unwindSegue: UIStoryboardSegue) {
         //if unwindSegue.identifier == "OtherGroupSegue" {
@@ -52,6 +61,20 @@ class GroupsTableViewController: UITableViewController {
                 print(otherGroupVC.filteredGroups.contains(group))
                 otherGroupVC.filteredGroups.removeAll(where: {$0 == group})
                 tableView.reloadData()
+            }
+        }
+    }
+}
+
+private extension GroupsTableViewController {
+    
+    
+    func fetchGroups() {
+        service.loadGroups { [weak self] groups in
+            guard let self = self else { return }
+            self.groups = groups
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
     }
