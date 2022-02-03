@@ -27,6 +27,7 @@ fileprivate enum TypeRequests: String {
 final class VKServiceGroups {
     private let scheme = "https"
     private let host = "api.vk.com"
+    
 
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
@@ -144,10 +145,6 @@ final class VKServiceGroups {
         }
         task.resume()
     }
-    
-    
-    
-    
 }
 
 private extension VKServiceGroups {

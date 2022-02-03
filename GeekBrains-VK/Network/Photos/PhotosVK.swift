@@ -5,24 +5,39 @@
 //  Created by Maksim Volkov on 25.01.2022.
 //
 
-struct PhotosVK: Decodable {
-    let response: ResponsePhotos
+struct PhotosVK: Codable {
+    let response: ResponsePhoto
 }
 
-struct ResponsePhotos: Decodable {
+struct ResponsePhoto: Codable {
     let count: Int
-    let items: [Photo]
+    let items: [InfoPhotoFriend]
 }
 
-struct Photo: Decodable {
-    let id: Int
-    let firstName, lastName: String
-    let photo50: String
+struct InfoPhotoFriend: Codable {
+    var sizes: [Size]
+    var text: String
 
     enum CodingKeys: String, CodingKey {
-        case id
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case photo50 = "photo_50"
+        case sizes
+        case text
+    }
+}
+
+struct Size: Codable {
+    let url: String
+    let type: SizeType
+
+    enum SizeType: String, Codable {
+        case m = "m"
+        case o = "o"
+        case p = "p"
+        case q = "q"
+        case r = "r"
+        case s = "s"
+        case w = "w"
+        case x = "x"
+        case y = "y"
+        case z = "z"
     }
 }

@@ -27,13 +27,14 @@
 		376044CC275552EC001E223B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376044CA275552EC001E223B /* Main.storyboard */; };
 		376044CE275552ED001E223B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376044CD275552ED001E223B /* Assets.xcassets */; };
 		376044D1275552ED001E223B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376044CF275552ED001E223B /* LaunchScreen.storyboard */; };
-		376044DC27561D4E001E223B /* GroupLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376044DB27561D4E001E223B /* GroupLocal.swift */; };
 		3762A759277E6380009DEF69 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762A758277E6380009DEF69 /* CarouselViewController.swift */; };
 		3762A75C277F529D009DEF69 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762A75B277F529D009DEF69 /* CustomNavigationController.swift */; };
 		3762A75E277F52C1009DEF69 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762A75D277F52C1009DEF69 /* InteractiveTransition.swift */; };
 		3762A761277F532B009DEF69 /* PushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762A760277F532B009DEF69 /* PushAnimator.swift */; };
 		3762A763277F5347009DEF69 /* PopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762A762277F5347009DEF69 /* PopAnimator.swift */; };
 		3762A766277F566D009DEF69 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762A765277F566D009DEF69 /* Session.swift */; };
+		377AE8F227AADF6A00960F4C /* CurrentFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AE8F127AADF6A00960F4C /* CurrentFriendViewController.swift */; };
+		377AE8F427AAE58A00960F4C /* CurrentFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AE8F327AAE58A00960F4C /* CurrentFriendCell.swift */; };
 		3792FADD27707ABF00FA7EA7 /* FriendsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3792FADC27707ABF00FA7EA7 /* FriendsSection.swift */; };
 		3792FAF22770BC2000FA7EA7 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3792FAF12770BC2000FA7EA7 /* TestView.swift */; };
 		379F60CE279FB7EC00114FE3 /* VKService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379F60CD279FB7EC00114FE3 /* VKService.swift */; };
@@ -71,13 +72,14 @@
 		376044CD275552ED001E223B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		376044D0275552ED001E223B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		376044D2275552ED001E223B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		376044DB27561D4E001E223B /* GroupLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupLocal.swift; sourceTree = "<group>"; };
 		3762A758277E6380009DEF69 /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
 		3762A75B277F529D009DEF69 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		3762A75D277F52C1009DEF69 /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
 		3762A760277F532B009DEF69 /* PushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAnimator.swift; sourceTree = "<group>"; };
 		3762A762277F5347009DEF69 /* PopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopAnimator.swift; sourceTree = "<group>"; };
 		3762A765277F566D009DEF69 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		377AE8F127AADF6A00960F4C /* CurrentFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentFriendViewController.swift; sourceTree = "<group>"; };
+		377AE8F327AAE58A00960F4C /* CurrentFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentFriendCell.swift; sourceTree = "<group>"; };
 		3792FADC27707ABF00FA7EA7 /* FriendsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsSection.swift; sourceTree = "<group>"; };
 		3792FAF12770BC2000FA7EA7 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		379F60CD279FB7EC00114FE3 /* VKService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKService.swift; sourceTree = "<group>"; };
@@ -210,7 +212,6 @@
 			children = (
 				3792FAE72770B3F300FA7EA7 /* CurrentFriend */,
 				3792FAE92770B45800FA7EA7 /* FriendsList */,
-				3762A758277E6380009DEF69 /* CarouselViewController.swift */,
 			);
 			path = FriendsControllers;
 			sourceTree = "<group>";
@@ -220,6 +221,8 @@
 			children = (
 				3792FAE82770B40300FA7EA7 /* Cell */,
 				3747C07027593A690096FBD4 /* FriendCollectionViewController.swift */,
+				3762A758277E6380009DEF69 /* CarouselViewController.swift */,
+				377AE8F127AADF6A00960F4C /* CurrentFriendViewController.swift */,
 			);
 			path = CurrentFriend;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				37FC1D41275A738A00E06479 /* MyFriendViewCell.swift */,
+				377AE8F327AAE58A00960F4C /* CurrentFriendCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -279,7 +283,6 @@
 		3792FAEE2770B57800FA7EA7 /* GroupsLoader */ = {
 			isa = PBXGroup;
 			children = (
-				376044DB27561D4E001E223B /* GroupLocal.swift */,
 			);
 			path = GroupsLoader;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3704C745278D41B000D5D488 /* LoginVKViewController.swift in Sources */,
+				377AE8F427AAE58A00960F4C /* CurrentFriendCell.swift in Sources */,
 				3762A763277F5347009DEF69 /* PopAnimator.swift in Sources */,
 				37FC1D42275A738A00E06479 /* MyFriendViewCell.swift in Sources */,
 				3715DBD7277D6F4A00FBC3B2 /* FriendListCell.swift in Sources */,
@@ -424,11 +428,11 @@
 				371479EC27A7991E00CCFEF2 /* VKServiceFriends.swift in Sources */,
 				37A685DC27957D3800AD386F /* ImageLoader.swift in Sources */,
 				379F60D2279FBF9600114FE3 /* PhotosVK.swift in Sources */,
+				377AE8F227AADF6A00960F4C /* CurrentFriendViewController.swift in Sources */,
 				37ECD0E127A8253E009FCA2C /* JoinOrLeaveGroupModel.swift in Sources */,
 				376044C5275552EC001E223B /* AppDelegate.swift in Sources */,
 				371479F027A7998200CCFEF2 /* VKServicePhotos.swift in Sources */,
 				3762A761277F532B009DEF69 /* PushAnimator.swift in Sources */,
-				376044DC27561D4E001E223B /* GroupLocal.swift in Sources */,
 				376044C7275552EC001E223B /* SceneDelegate.swift in Sources */,
 				3762A766277F566D009DEF69 /* Session.swift in Sources */,
 				3732E884277AFBAE0010700E /* CustomNewsTableViewCell.swift in Sources */,

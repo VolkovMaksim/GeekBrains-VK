@@ -239,7 +239,7 @@
                                 <connections>
                                     <outlet property="friendsIcon" destination="zU9-g1-F3S" id="gpQ-sO-Vss"/>
                                     <outlet property="friendsName" destination="7iq-16-NZQ" id="emy-Qk-icq"/>
-                                    <segue destination="9iE-3a-dXM" kind="show" id="tSd-pN-7kQ"/>
+                                    <segue destination="K1X-tG-1c5" kind="show" id="vcc-2x-9z8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -263,7 +263,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nQ5-E9-3sF">
-                            <size key="itemSize" width="250" height="300"/>
+                            <size key="itemSize" width="250" height="207"/>
                             <size key="estimatedItemSize" width="250" height="300"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -271,14 +271,14 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Friend" id="waC-gX-KMo" customClass="MyFriendViewCell" customModule="GeekBrains_VK" customModuleProvider="target">
-                                <rect key="frame" x="82" y="0.0" width="250" height="300"/>
+                                <rect key="frame" x="82" y="0.0" width="250" height="207"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="oj0-UH-Iao">
-                                    <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="207"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FriendsName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BS-yO-Act">
-                                            <rect key="frame" x="42" y="208" width="166" height="36"/>
+                                            <rect key="frame" x="42" y="156" width="166" height="36"/>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -295,11 +295,11 @@
                                         <constraint firstItem="Z1v-Yw-IaI" firstAttribute="top" secondItem="oj0-UH-Iao" secondAttribute="top" constant="8" id="9kS-dg-Cdk"/>
                                         <constraint firstAttribute="trailing" secondItem="Z1v-Yw-IaI" secondAttribute="trailing" constant="5" id="XyF-xr-L7u"/>
                                         <constraint firstItem="Z1v-Yw-IaI" firstAttribute="leading" secondItem="oj0-UH-Iao" secondAttribute="leading" constant="5" id="qJN-fH-D8Q"/>
-                                        <constraint firstItem="8BS-yO-Act" firstAttribute="top" secondItem="Z1v-Yw-IaI" secondAttribute="bottom" constant="72" id="rWp-ma-PuA"/>
+                                        <constraint firstItem="8BS-yO-Act" firstAttribute="top" secondItem="Z1v-Yw-IaI" secondAttribute="bottom" constant="20" id="rWp-ma-PuA"/>
                                         <constraint firstItem="8BS-yO-Act" firstAttribute="centerX" secondItem="oj0-UH-Iao" secondAttribute="centerX" id="xhG-oC-Gpc"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="250" height="300"/>
+                                <size key="customSize" width="250" height="207"/>
                                 <connections>
                                     <outlet property="friendsName" destination="8BS-yO-Act" id="UPN-bo-sg5"/>
                                     <outlet property="friendsPhoto" destination="Z1v-Yw-IaI" id="of8-ec-XJj"/>
@@ -312,29 +312,89 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="4r6-eo-aNK"/>
-                    <connections>
-                        <segue destination="K1X-tG-1c5" kind="show" id="TM9-G7-Itl"/>
-                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Rg-xd-0PI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4186.9565217391309" y="-208.25892857142856"/>
+            <point key="canvasLocation" x="6174" y="-196"/>
         </scene>
-        <!--Carousel View Controller-->
+        <!--Current Friend View Controller-->
         <scene sceneID="5xm-yo-rLS">
             <objects>
-                <viewController storyboardIdentifier="CarouselViewController" id="K1X-tG-1c5" customClass="CarouselViewController" customModule="GeekBrains_VK" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CarouselViewController" id="K1X-tG-1c5" customClass="CurrentFriendViewController" customModule="GeekBrains_VK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tLt-qU-N4E">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QgL-hm-5tP" customClass="TestView" customModule="GeekBrains_VK" customModuleProvider="target">
+                                <rect key="frame" x="132" y="101" width="150" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="3q5-6o-uh5"/>
+                                    <constraint firstAttribute="width" constant="150" id="Imt-qu-q1E"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FriendsName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmE-d6-5jW">
+                                <rect key="frame" x="20" y="259" width="374" height="30"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-vX-biz">
+                                <rect key="frame" x="0.0" y="297" width="414" height="516"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PDT-mV-5H7">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="EvQ-Pk-NN0" customClass="CurrentFriendCell" customModule="GeekBrains_VK" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5gi-iS-XnC">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JDZ-cB-0Xb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JDZ-cB-0Xb" firstAttribute="leading" secondItem="5gi-iS-XnC" secondAttribute="leading" id="1zE-Gx-dbj"/>
+                                                <constraint firstAttribute="trailing" secondItem="JDZ-cB-0Xb" secondAttribute="trailing" id="Yxn-EK-4Eo"/>
+                                                <constraint firstAttribute="bottom" secondItem="JDZ-cB-0Xb" secondAttribute="bottom" id="h5Z-2O-Ze1"/>
+                                                <constraint firstItem="JDZ-cB-0Xb" firstAttribute="top" secondItem="5gi-iS-XnC" secondAttribute="top" id="seS-dW-5jE"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="photoImage" destination="JDZ-cB-0Xb" id="Ktv-jg-33p"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="WBr-Up-KCj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QgL-hm-5tP" firstAttribute="top" secondItem="WBr-Up-KCj" secondAttribute="top" constant="13" id="9YX-JE-FST"/>
+                            <constraint firstItem="DmE-d6-5jW" firstAttribute="top" secondItem="QgL-hm-5tP" secondAttribute="bottom" constant="8" symbolic="YES" id="RF5-jA-nso"/>
+                            <constraint firstItem="WBr-Up-KCj" firstAttribute="trailing" secondItem="DmE-d6-5jW" secondAttribute="trailing" constant="20" id="ahT-KY-cJf"/>
+                            <constraint firstItem="QgL-hm-5tP" firstAttribute="centerX" secondItem="WBr-Up-KCj" secondAttribute="centerX" id="erO-9x-K5Y"/>
+                            <constraint firstItem="DmE-d6-5jW" firstAttribute="leading" secondItem="WBr-Up-KCj" secondAttribute="leading" constant="20" id="phE-Ix-17C"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Ii-Ps-b1K"/>
+                    <connections>
+                        <outlet property="avatarView" destination="QgL-hm-5tP" id="R7s-mt-Vve"/>
+                        <outlet property="collectionView" destination="ebg-vX-biz" id="8uD-P7-jBm"/>
+                        <outlet property="nameLabel" destination="DmE-d6-5jW" id="MpK-m0-V0P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XP-Ud-BRM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5113" y="-208"/>
+            <point key="canvasLocation" x="4218.840579710145" y="-208.25892857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="N92-cD-SYS">

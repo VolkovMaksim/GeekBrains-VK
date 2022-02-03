@@ -7,14 +7,26 @@
 
 import UIKit
 
-class GroupsTableViewController: UITableViewController {
+class GroupsTableViewController: UITableViewController, UISearchBarDelegate {
 
     var groups: [Group] = []
-    var myGroup: [GroupLocal] = []
+    var filteredGroups: [Group] = []
     var service = GroupsServiceManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchGroups()
+        filteredGroups = groups
+        navigationItem.searchController = {
+                    let s = UISearchController(searchResultsController: nil)
+                     s.obscuresBackgroundDuringPresentation = false
+                     s.searchBar.placeholder = "Search Group..."
+                     s.searchBar.sizeToFit()
+                     s.searchBar.searchBarStyle = .prominent
+                     s.searchBar.delegate = self
+                     return s
+                 }()
+        
         fetchGroups()
     }
 
@@ -23,7 +35,7 @@ class GroupsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // количество строк равно количеству элементов массива
-        return groups.count
+        return filteredGroups.count
     }
 
     
@@ -55,19 +67,40 @@ class GroupsTableViewController: UITableViewController {
             return
         }
         if let indexPath = otherGroupVC.tableView.indexPathForSelectedRow {
-            let group = otherGroupVC.filteredGroups[indexPath.row]
-            if !myGroup.contains(group) {
-                myGroup.append(group)
-                print(otherGroupVC.filteredGroups.contains(group))
-                otherGroupVC.filteredGroups.removeAll(where: {$0 == group})
-                tableView.reloadData()
+//            let group = otherGroupVC.groups[indexPath.row]
+//            if !groups.contains(group) {
+//                groups.append(group)
+//                print(otherGroupVC.groups.contains(group))
+//                otherGroupVC.groups.removeAll(where: {$0 == group})
+//                tableView.reloadData()
+//            }
+        }
+    }
+    
+    // MARK: - Search Bar Config
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredGroups = []
+        
+        if searchText == "" {
+            filteredGroups = groups
+        } else {
+            for group in groups {
+                
+                if group.name.lowercased().contains(searchText.lowercased()) {
+                    filteredGroups.append(group)
+                } else {
+                    filteredGroups.removeAll()
+                }
             }
         }
+        
+        
+        self.tableView.reloadData()
+        
     }
 }
 
 private extension GroupsTableViewController {
-    
     
     func fetchGroups() {
         service.loadGroups { [weak self] groups in

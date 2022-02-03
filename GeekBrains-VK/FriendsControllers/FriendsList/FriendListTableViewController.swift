@@ -74,12 +74,22 @@ class FriendListTableViewController: UITableViewController, UISearchBarDelegate 
 //    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is FriendCollectionViewController {
-            guard let vc = segue.destination as? FriendCollectionViewController else { return }
-            guard let indexPathSection = tableView.indexPathForSelectedRow?.section else { return }
-            guard let indexPathRow = tableView.indexPathForSelectedRow?.row else { return }
+        if segue.destination is CurrentFriendViewController {
+            guard
+                let vc = segue.destination as? CurrentFriendViewController,
+                let indexPathSection = tableView.indexPathForSelectedRow?.section,
+                let indexPathRow = tableView.indexPathForSelectedRow?.row
+            else {
+                return
+            }
             let section = friends[indexPathSection]
-//            vc.friend = section.data[indexPathRow]
+            let firstName = section.data[indexPathRow].firstName
+            let friendId = section.data[indexPathRow].id
+            let photo = section.data[indexPathRow].photo50
+
+            vc.friendName = firstName
+            vc.friendId = String(friendId)
+            vc.friendAvatar = photo
         }
     }
 }

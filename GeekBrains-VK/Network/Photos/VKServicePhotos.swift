@@ -13,7 +13,7 @@ enum PhotosError: Error {
 }
 
 fileprivate enum TypeMethods: String {
-    case photosGet = "/method/photos.getAll"
+    case photosGetAll = "/method/photos.getAll"
 }
 
 fileprivate enum TypeRequests: String {
@@ -24,6 +24,8 @@ fileprivate enum TypeRequests: String {
 final class VKServicePhotos {
     private let scheme = "https"
     private let host = "api.vk.com"
+    
+    private let decoder = JSONDecoder()
 
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
@@ -31,32 +33,29 @@ final class VKServicePhotos {
         return session
     }()
     
-    func loadPhoto(completion: @escaping ((Result<PhotosVK, ServicesError>) -> ())) {
-        guard let token = Session.instance.token else {
-            return
-        }
-        let params: [String: String] = [ "fields": "photo_50"]
+    func loadPhoto(idFriend: String, completion: @escaping (Result<[InfoPhotoFriend], PhotosError>) -> Void) {
+        guard let token = Session.instance.token else { return }
+
+        let params: [String: String] = ["owner_id": idFriend,
+                                        "extended": "1",
+                                        "count": "200"]
 
         let url = configureUrl(token: token,
-                               method: .photosGet,
+                               method: .photosGetAll,
                                htttpMethod: .get,
                                params: params)
-
-
         print(url)
-
         let task = session.dataTask(with: url) { data, response, error in
             if let error = error {
                 return completion(.failure(.requestError(error)))
             }
-
-            guard let data = data else { return }
-            let decoder = JSONDecoder()
-
+            guard let data = data else {
+                return
+            }
             do {
-                let result = try decoder.decode(PhotosVK.self, from: data)
+                let result = try self.decoder.decode(PhotosVK.self, from: data)
                 print(result)
-                return completion(.success(result))
+                return completion(.success(result.response.items))
             } catch {
                 return completion(.failure(.parseError))
             }

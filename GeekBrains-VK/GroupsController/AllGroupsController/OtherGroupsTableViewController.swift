@@ -10,8 +10,8 @@ import UIKit
 class OtherGroupsTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    var groups = GroupLocal.loadAllGroups()
-    var filteredGroups: [GroupLocal]!
+    var groups = [Group]()
+    var filteredGroups: [Group]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class OtherGroupsTableViewController: UITableViewController, UISearchBarDelegate
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OtherGroup", for: indexPath)
 
-        cell.imageView?.image = UIImage(named: filteredGroups[indexPath.row].logo)
+        cell.imageView?.image = UIImage(named: filteredGroups[indexPath.row].photo100)
         // настройка подписи в ячейке
         cell.textLabel?.text = filteredGroups[indexPath.row].name
         return cell
