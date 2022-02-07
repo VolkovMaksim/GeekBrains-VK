@@ -13,6 +13,7 @@
 		371479EE27A7996500CCFEF2 /* VKServiceGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371479ED27A7996500CCFEF2 /* VKServiceGroups.swift */; };
 		371479F027A7998200CCFEF2 /* VKServicePhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371479EF27A7998200CCFEF2 /* VKServicePhotos.swift */; };
 		3715DBD7277D6F4A00FBC3B2 /* FriendListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3715DBD6277D6F4A00FBC3B2 /* FriendListCell.swift */; };
+		3716396127B1822D006A024E /* FriendsRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3716396027B1822D006A024E /* FriendsRealm.swift */; };
 		3719D49F279FF5A700A5D436 /* GroupsServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3719D49E279FF5A700A5D436 /* GroupsServiceManager.swift */; };
 		3732E880277AFA6C0010700E /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3732E87F277AFA6C0010700E /* NewsViewController.swift */; };
 		3732E882277AFA8F0010700E /* CustomNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3732E881277AFA8F0010700E /* CustomNewsCell.xib */; };
@@ -56,6 +57,7 @@
 		371479ED27A7996500CCFEF2 /* VKServiceGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServiceGroups.swift; sourceTree = "<group>"; };
 		371479EF27A7998200CCFEF2 /* VKServicePhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServicePhotos.swift; sourceTree = "<group>"; };
 		3715DBD6277D6F4A00FBC3B2 /* FriendListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListCell.swift; sourceTree = "<group>"; };
+		3716396027B1822D006A024E /* FriendsRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsRealm.swift; sourceTree = "<group>"; };
 		3719D49E279FF5A700A5D436 /* GroupsServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsServiceManager.swift; sourceTree = "<group>"; };
 		3732E87F277AFA6C0010700E /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		3732E881277AFA8F0010700E /* CustomNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNewsCell.xib; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				37A685DB27957D3800AD386F /* ImageLoader.swift */,
 				37FEC527279AE4D200113BBE /* FriendsServiceManager.swift */,
 				371479EB27A7991E00CCFEF2 /* VKServiceFriends.swift */,
+				3716396027B1822D006A024E /* FriendsRealm.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				3704C745278D41B000D5D488 /* LoginVKViewController.swift in Sources */,
 				377AE8F427AAE58A00960F4C /* CurrentFriendCell.swift in Sources */,
 				3762A763277F5347009DEF69 /* PopAnimator.swift in Sources */,
+				3716396127B1822D006A024E /* FriendsRealm.swift in Sources */,
 				37FC1D42275A738A00E06479 /* MyFriendViewCell.swift in Sources */,
 				3715DBD7277D6F4A00FBC3B2 /* FriendListCell.swift in Sources */,
 				3747C07127593A690096FBD4 /* FriendCollectionViewController.swift in Sources */,
